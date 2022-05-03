@@ -1,0 +1,49 @@
+.navbar {
+  height: 80px !important;
+}
+
+mat-form-field {
+  width: 60%;
+
+}
+
+.checkbox{
+  
+   
+    label{
+        color:#878686;
+      padding-top: 2px;
+    }
+}
+.mat-raised-button {
+  width: 60%;
+ position: relative;
+}
+h1 {
+  padding-left: 20px;
+}
+.mat-list-item {
+  display: block;
+}
+.card {
+  border: 1px solid #bbbbbb21;
+}
+
+
+.password{
+    display: grid ;
+    position:relative;
+    bottom: auto;
+    .card{
+        padding-top:1px !important;
+        float: right ;
+        position: absolute;
+        height: 85px;
+        left: 400px;
+        top: -20px;
+        margin-bottom:0px;
+       
+    }
+}
+
+

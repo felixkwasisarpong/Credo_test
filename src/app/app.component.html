@@ -1,0 +1,157 @@
+<nav class="navbar navbar-expand-lg mb-5 border border-bottom-2">
+  <div class="container-fluid">
+    <a href="#" class="navbar-brand fw-bolder" style="color: black">SOL</a>
+
+    <button
+      type="button"
+      class="navbar-toggler"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapse"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto">
+        Already using?
+        <a
+          href="#"
+          class="text-decoration-none fw-bolder"
+          style="color: rgb(73, 0, 220)"
+          >Sign in</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <mat-list role="list">
+        <h1 class="fw-bolder">Create an <br />account</h1>
+        <mat-list-item>
+          <mat-icon color="primary" class="material-icons-outlined"
+            >shield</mat-icon
+          >
+          <span class="label"
+            >Secure payments through <br />
+            reliable partners</span
+          >
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon color="primary" class="material-icons-outlined"
+            >electric_bolt</mat-icon
+          >
+          <span class="label">Fast transfers</span>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon color="primary" class="material-icons-outlined"
+            >percent</mat-icon
+          >
+          <span class="label">Fair commisions</span>
+        </mat-list-item>
+        <mat-list-item>
+          <img src="assets/pulse.png" />
+          <span class="label">Best available rates</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon color="primary" class="material-icons-outlined"
+            >thumb_up</mat-icon
+          >
+          <span class="label">Convenience</span>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div class="col-md-7">
+      <form style="font-size: 10px" class="signup" [formGroup]="register">
+        <mat-form-field appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input matInput placeholder="full name" formControlName="name" />
+          <mat-icon matSuffix *ngIf="name.valid" [ngStyle]="{ color: 'green' }"
+            >done</mat-icon
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="email" />
+          <mat-icon matSuffix *ngIf="email.valid" [ngStyle]="{ color: 'green' }"
+            >done</mat-icon
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input
+            matInput
+            placeholder="Phone Number"
+            appPhoneMask
+            formControlName="phone"
+          />
+          <mat-icon matSuffix *ngIf="phone.valid" [ngStyle]="{ color: 'green' }"
+            >done</mat-icon
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date" />
+          <mat-datepicker-toggle
+            matSuffix
+            color="primary"
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        <div class="password">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <mat-pass-toggle-visibility
+              #toggle
+              matSuffix
+            ></mat-pass-toggle-visibility>
+            <input
+              matInput
+              #password
+              [type]="toggle.type"
+              placeholder="Password"
+              id="password"
+            />
+          </mat-form-field>
+
+          <div class="card shadow-sm w-25" id="pswd_info">
+            <div class="card-body">
+              <mat-label class="fw-bolder">{{ this.power }}</mat-label>
+              <mat-password-strength
+                #passwordComponent
+                (onStrengthChanged)="onStrengthChanged($event)"
+                [password]="password.value"
+              >
+              </mat-password-strength>
+              <p>Great! This will do. Just dont forget him</p>
+            </div>
+          </div>
+        </div>
+
+        <div fxFlex="100%">
+          <button
+            mat-raised-button
+            [ngStyle]="{ 'background-color': 'blue', color: 'white' }"
+          >
+            Sign Up
+          </button>
+        </div>
+        <div class="checkbox">
+          
+          <input type="checkbox">
+          <label class="mt-2">I agree to our Terms of Service and Privacy Policy</label>
+           
+         
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
