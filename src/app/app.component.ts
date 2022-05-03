@@ -1,5 +1,5 @@
-import { UserService } from './_services/user.service';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+
+import { Component, AfterContentChecked, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,14 +8,12 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  @ViewChild('password') password: ElementRef | any;
+export class AppComponent implements AfterContentChecked {
   title = 'SignUp';
-  public showPassword: boolean = false;
   register: any;
-  power: any;
+  power:any;
   show: boolean = false;
-
+ 
   get name() {
     return this.register.get("name");
   }
@@ -32,7 +30,7 @@ export class AppComponent {
   }
 
 
-  constructor(public fb: FormBuilder,userService: UserService) {
+  constructor(public fb: FormBuilder) {
     this.register = this.fb.group({
       email: ['', {
         validators: [
@@ -41,22 +39,18 @@ export class AppComponent {
         ],
         updateOn: 'change'
       }],
-      name: ['',
-    
-       {
+      name: ['', {
         validators: [
           Validators.required,
           Validators.minLength(3)
-
         ],
-      
+
         updateOn: 'change'
       }],
       date: ['', {
         validators: [
           Validators.required,
         ],
-
       }],
       phone: ['', {
         validators: [
@@ -68,19 +62,17 @@ export class AppComponent {
       password: ['', {
         validators: [
           Validators.required,
-      
         ],
         updateOn: 'change'
       }],
-
     })
 
   }
-  public togglePasswordVisibility(): void {
-    this.showPassword = !this.showPassword;
+  ngAfterContentChecked(): void {
+    
   }
 
-  onStrengthChanged(strength: number) {
+  onStrengthChanged(strength:number) {
     console.log('password strength = ', strength);
     switch (true) {
       case isNaN(strength):
@@ -100,12 +92,6 @@ export class AppComponent {
     return this.power;
   }
 
-  meter() {
-    this.show = !this.show;
-    setTimeout(() => { // this will make the execution after the above boolean has changed
-      this.password.nativeElement.focus();
-    }, 0);
-  }
 }
 
 
