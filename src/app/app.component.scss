@@ -2,22 +2,25 @@
   height: 80px !important;
 }
 
-mat-form-field {
+.mat-form-field {
   width: 60%;
-
 }
 
-.checkbox{
-  
-   
-    label{
-        color:#878686;
-      padding-top: 2px;
-    }
+.mat-input-element {
+  font-size: 15px;
+}
+input {
+  height: 20px;
+}
+.checkbox {
+  label {
+    color: #878686;
+    padding-top: 2px;
+  }
 }
 .mat-raised-button {
   width: 60%;
- position: relative;
+  position: relative;
 }
 h1 {
   padding-left: 20px;
@@ -29,26 +32,27 @@ h1 {
   border: 1px solid #bbbbbb21;
 }
 
-
-.password{
-    display: grid ;
-    position:relative;
-    bottom: auto;
-    .card{
-        padding-top:1px !important;
-        float: right ;
-        position: absolute;
-        height: 85px;
-        left: 61%;
-        top: -20px;
-        margin-bottom:0px;
-       
-    }
+.password {
+  display: grid;
+  position: relative;
+  bottom: auto;
+  .card {
+    padding-top: 1px !important;
+    float: right;
+    position: absolute;
+    height: 85px;
+    left: 61%;
+    top: -20px;
+    margin-bottom: 0px;
+  }
 }
 
-.mat-label{
-  font-size: larger;
+mat-form-field label {
+  font-size: 20px;
 }
-.label{
-  margin-left:5px
+.label {
+  margin-left: 5px;
+}
+.mat-form-field-label{
+font-size: 10px;
 }
